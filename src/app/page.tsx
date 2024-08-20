@@ -1,17 +1,20 @@
-// app/page.tsx
 'use client'
-import { Link } from '@chakra-ui/next-js'
-import {Flex } from '@chakra-ui/react'
-
-export default function Page() {
+import { Box, Flex, Text } from "@chakra-ui/react";
+import Sidebar from "./components/sidebar";
+export default function Home() {
   return (
-    <>
-    <Flex>
-      <center>
-
-      </center>
+    <Flex direction="row" height="100vh">
+      <Sidebar />
+      <Box
+        flex="1"
+        backgroundImage="url('/images/BackGround.png')"
+        backgroundSize="cover" // Ensures the image covers the entire container
+        backgroundPosition="center" // Centers the image in the container
+        p={4}
+      >
+        <Text fontSize="2xl" color="white">Welcome to the Home Page</Text>
+        {/* Additional content goes here */}
+      </Box>
     </Flex>
-      
-    </>
-  )
+  );
 }
