@@ -38,6 +38,7 @@ import { Providers } from './providers'; // Import providers if needed
 import { Box, Flex } from '@chakra-ui/react';
 import Sidebar from './components/sidebar';
 
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>

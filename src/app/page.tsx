@@ -1,6 +1,7 @@
-'use client'
-import { Box, Flex, Text } from "@chakra-ui/react";
+'use client';
+import { Box, Flex, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
 import Sidebar from "./components/sidebar";
+
 export default function Home() {
   return (
     <Flex direction="row" height="100vh">
@@ -8,12 +9,26 @@ export default function Home() {
       <Box
         flex="1"
         backgroundImage="url('/images/BackGround.png')"
-        backgroundSize="cover" // Ensures the image covers the entire container
-        backgroundPosition="center" // Centers the image in the container
+        backgroundSize="cover"
+        width="100%"
+        height="100vh"
+        backgroundRepeat="no-repeat"
+        backgroundPosition="center"
+        filter="hue-rotate(-100deg) saturate(40%) brightness(50%)"
         p={4}
+        ml="400px" // Offset by the width of the sidebar
       >
-        <Text fontSize="2xl" color="white">Welcome to the Home Page</Text>
-        {/* Additional content goes here */}
+        <Text fontSize="2xl" color="Black" align="center">Welcome to the Home Page</Text>
+        <Flex justify="center" mt={10} pt={30}>
+          <RadioGroup defaultValue="1">
+            <Stack direction="row" spacing={10}>
+              <Radio value="1"  />
+              <Radio value="2"  />
+              <Radio value="3"  />
+              <Radio value="4"  />
+            </Stack>
+          </RadioGroup>
+        </Flex>
       </Box>
     </Flex>
   );
