@@ -19,6 +19,7 @@ const Sidebar = () => {
             backgroundImage="url('/images/Image(bg).png')"
             backgroundSize="cover"
             backgroundPosition="center"
+            filter="saturate(65%) brightness(90%)"
         >
             <Box>
                 <Center mb={10} pt={20}>
@@ -28,7 +29,7 @@ const Sidebar = () => {
                 <Center mb={10}>
                     <NextLink href="/" passHref legacyBehavior>
                         <Link
-                            color={pathname === "/" ? "brown" : "white"} // Home page
+                            color={pathname === "/" ? "brown" : "gray"} // Home page
                             fontSize="lg"
                             fontWeight="medium"
                         >
@@ -40,7 +41,7 @@ const Sidebar = () => {
                 <Center mb={10}>
                     <NextLink href="/work" passHref legacyBehavior>
                         <Link
-                            color={pathname === "/work" ? "brown" : "white"}
+                            color={pathname === "/work" ? "brown" : "gray"}
                             fontSize="lg"
                             fontWeight="medium"
                         >
@@ -50,13 +51,13 @@ const Sidebar = () => {
                 </Center>
 
                 <Center mb={10}>
-                    <NextLink href="/services" passHref legacyBehavior>
+                    <NextLink href="/VR" passHref legacyBehavior>
                         <Link
-                            color={pathname === "/services" ? "brown" : "white"}
+                            color={pathname === "/VR" ? "brown" : "gray"}
                             fontSize="lg"
                             fontWeight="medium"
                         >
-                            Vr
+                            VR
                         </Link>
                     </NextLink>
                 </Center>
@@ -64,7 +65,7 @@ const Sidebar = () => {
                 <Center mb={10}>
                     <NextLink href="/about" passHref legacyBehavior>
                         <Link
-                            color={pathname === "/about" ? "brown" : "white"}
+                            color={pathname === "/about" ? "brown" : "gray"}
                             fontSize="lg"
                             fontWeight="medium"
                         >
@@ -76,7 +77,7 @@ const Sidebar = () => {
                 <Center mb={10}>
                     <NextLink href="/contact" passHref legacyBehavior>
                         <Link
-                            color={pathname === "/contact" ? "brown" : "white"}
+                            color={pathname === "/contact" ? "brown" : "gray"}
                             fontSize="lg"
                             fontWeight="medium"
                         >
@@ -87,12 +88,12 @@ const Sidebar = () => {
             </Box>
 
             {/* Sidebar Footer */}
-            <Box mt="auto" pt={4} borderTop="1px solid white">
-                <Text fontSize="sm" textAlign="center">
+            <Box mt="auto" pt={4} borderTop="1px solid gray">
+                <Text fontSize="sm" textAlign="center" color={"black"}>
                     &copy; {new Date().getFullYear()} My Website. All rights reserved.
                 </Text>
-                <Text fontSize="sm" textAlign="center">Design By Kotak</Text>
-                <Text fontSize="sm" textAlign="center">www.devkoma.com</Text>
+                <Text fontSize="sm" textAlign="center" color={"black"}>Design By Kotak</Text>
+                <Text fontSize="sm" textAlign="center" color={"black"}>www.devkoma.com</Text>
             </Box>
         </Flex>
     );
