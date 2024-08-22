@@ -14,7 +14,7 @@ export default function Home() {
         height="100vh"
         backgroundRepeat="no-repeat"
         backgroundPosition="center"
-        filter="hue-rotate(-100deg) saturate(40%) brightness(50%)"
+        filter="hue-rotate(-100deg) saturate(40%) brightness(65%)"
         p={4}
         ml="400px" // Offset by the width of the sidebar
       >
