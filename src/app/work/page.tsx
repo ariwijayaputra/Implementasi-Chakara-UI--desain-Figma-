@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Box, SimpleGrid, Text ,Flex } from "@chakra-ui/react";
+import { Box, Text, Flex  } from "@chakra-ui/react";
 import Sidebar from "../components/sidebar";
+import Link from 'next/link';
 
 const Work = () => {
     const [filenames, setFilenames] = useState<string[]>([]);
@@ -14,32 +15,55 @@ const Work = () => {
             .catch((error) => console.error('Error fetching images:', error));
     }, []);
 
+    // Divide images into three columns
+    const columnCount = 3;
+    const columns = Array.from({ length: columnCount }, () => []);
+
+    filenames.forEach((filename, index) => {
+        columns[index % columnCount].push(filename);
+    });
+
     return (
-        <>
-    <Flex direction="row" height="100vh">
-  <Sidebar />
-  <Box flex="1" p={5} maxW="1200px" mx="auto" position="relative" ml="400px"> {/* Add margin-left equal to sidebar width */}
-    <SimpleGrid columns={[1, null, 3]} spacing="20px">
-      {filenames.map((filename) => (
-        <Box key={filename} position="relative">
-          <Image
-            src={`/images/gallery/${filename}`}
-            alt={filename}
-            width={400}  // or any appropriate width
-            height={300}  // or any appropriate height
-            objectFit="cover"
-          />
-          <Box position="absolute" top="20px" left="10px">
-            <Text bg="rgba(255, 255, 255, 0.8)" p="3px 8px" borderRadius="5px">
-              Lorem Ipsum
-            </Text>
-          </Box>
-        </Box>
-      ))}
-    </SimpleGrid>
-  </Box>
-</Flex>
-    </>
+        <Flex direction="row" height="100vh">
+            <Sidebar />
+            <Flex flex="1" p={5} maxW="2000px" mx="auto" ml="400px">
+                {columns.map((column, columnIndex) => (
+                    <Flex
+                        key={columnIndex}
+                        direction="column"
+                        flex="1"
+                        marginLeft={columnIndex !== 0 ? '20px' : '0'}
+                        gap="20px">
+                        {column.map((filename) => (
+                            <Link key={filename} href={`/gallery/${filename}`} passHref>
+                                <Box position="relative" borderRadius="10px" overflow="hidden" boxShadow="lg" as="a">
+                                    <Image
+                                        src={`/images/gallery/${filename}`}
+                                        alt={filename}
+                                        width={1200}
+                                        height={1100}
+                                        objectFit="cover"
+                                        style={{ borderRadius: '5px' }}
+                                    />
+                                    <Box
+                                        position="absolute"
+                                        top="10px"
+                                        left="10px"
+                                        bg="rgba(245, 245, 245, 0.9)"
+                                        color="black"
+                                        p="4px 10px"
+                                        borderRadius="5px"
+                                        boxShadow="sm"
+                                    >
+                                        <Text fontSize="sm">Lorem Ipsum</Text>
+                                    </Box>
+                                </Box>
+                            </Link>
+                        ))}
+                    </Flex>
+                ))}
+            </Flex>
+        </Flex>
     );
 };
 
