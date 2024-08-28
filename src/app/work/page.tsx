@@ -66,7 +66,7 @@ return (
         ))}
     </Flex>
     </Flex>
-  );
+);
 };
 
 export default Work;
