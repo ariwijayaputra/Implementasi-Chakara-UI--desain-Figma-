@@ -16,7 +16,7 @@ const VR = () => {
 
   return (
     <>
-      <Flex direction="row" height="100vh">
+      <Flex direction="row">
         <Sidebar />
         <Box
           flex="1"
