@@ -1,18 +1,21 @@
-"use client";
-import { useState, useEffect } from "react";
+'use client'
 import Image from "next/image";
 import { Box, SimpleGrid, Text, Flex } from "@chakra-ui/react";
 import Sidebar from "../components/sidebar";
+import { useGalleryImages } from "../components/gallery";
 
 const VR = () => {
-  const [filenames, setFilenames] = useState<string[]>([]);
+  const filenames = useGalleryImages();
+  // Divide images into three columns
+const columnCount = 3;
+const columns: string[][] = Array.from(
+    { length: columnCount },
+    () => [] as string[]
+);
 
-  useEffect(() => {
-    fetch("/api/images")
-      .then((response) => response.json())
-      .then((data) => setFilenames(data))
-      .catch((error) => console.error("Error fetching images:", error));
-  }, []);
+filenames.forEach((filename, index) => {
+    columns[index % columnCount].push(filename);
+});
 
   return (
     <>

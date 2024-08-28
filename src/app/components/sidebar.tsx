@@ -41,7 +41,7 @@ const Sidebar = () => {
                 <Center mb={10}>
                     <NextLink href="/work" passHref legacyBehavior>
                         <Link
-                            color={pathname === "/work" ? "brown" : "gray"}
+                            color={pathname === "/work" || pathname.startsWith("/work/extend") ? "brown" : "gray"}
                             fontSize="lg"
                             fontWeight="medium"
                         >
