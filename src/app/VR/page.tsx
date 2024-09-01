@@ -8,7 +8,7 @@ const VR = () => {
     const filenames = useGalleryImages('VR');
 
     return (
-        <Flex>
+        <Flex direction={['column', 'row']} wrap="wrap" justify="center">
             <Box
                 flex="1"
                 p={5}

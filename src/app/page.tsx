@@ -4,7 +4,7 @@ import Sidebar from "./components/sidebar";
 
 export default function Home() {
   return (
-    <Flex direction="row" height="100vh">
+    <Flex direction={['column', 'row']} wrap="wrap" justify="center" height="100vh">
       <Box
         flex="1"
         backgroundImage="url('/images/BackGround.png')"
