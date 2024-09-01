@@ -9,14 +9,12 @@ const VR = () => {
 
     return (
         <Flex>
-            <Sidebar />
             <Box
                 flex="1"
                 p={5}
                 maxW="2000px"
                 mx="auto"
                 position="relative"
-                ml="400px" // Adjust margin-left to the width of the sidebar
             >
                 <SimpleGrid columns={[1]} spacing="20px">
                     {filenames.map((filename) => (

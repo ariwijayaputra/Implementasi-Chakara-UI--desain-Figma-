@@ -5,7 +5,6 @@ import Sidebar from "./components/sidebar";
 export default function Home() {
   return (
     <Flex direction="row" height="100vh">
-      <Sidebar />
       <Box
         flex="1"
         backgroundImage="url('/images/BackGround.png')"
@@ -16,7 +15,6 @@ export default function Home() {
         backgroundPosition="center"
         filter="hue-rotate(-100deg) saturate(40%) brightness(65%)"
         p={4}
-        ml="400px" // Offset by the width of the sidebar
       >
         <Text fontSize="2xl" color="Black" align="center">Welcome to the Home Page</Text>
         <Flex justify="center" mt={10} pt={30}>

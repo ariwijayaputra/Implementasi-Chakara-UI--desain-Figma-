@@ -11,7 +11,7 @@ const Sidebar = () => {
         <Flex
             direction="column"
             justifyContent="space-between"
-            width="400px"
+            width="350px"
             height="100vh"
             position="fixed"
             color="white"
@@ -19,7 +19,7 @@ const Sidebar = () => {
             backgroundImage="url('/images/Image(bg).png')"
             backgroundSize="cover"
             backgroundPosition="center"
-            filter="saturate(65%) brightness(90%)"
+            filter="saturate(65%) brightness(90%) blur(60%)"
         >
             <Box>
                 <Center mb={10} pt={20}>
