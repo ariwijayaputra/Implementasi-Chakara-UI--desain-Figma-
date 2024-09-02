@@ -86,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               backgroundSize="cover"
               backgroundRepeat="no-repeat"
               backgroundPosition="center"
-              filter="blur(10px)" // Apply blur effect
+              filter="blur(30px)" // Apply blur effect
               opacity="0.5" // Lower the opacity of the image
             />
             <Box

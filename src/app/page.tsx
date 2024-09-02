@@ -10,7 +10,6 @@ export default function Home() {
         backgroundImage="url('/images/BackGround.png')"
         backgroundSize="cover"
         width="100%"
-        height="100vh"
         backgroundRepeat="no-repeat"
         backgroundPosition="center"
         filter="hue-rotate(-100deg) saturate(40%) brightness(65%)"

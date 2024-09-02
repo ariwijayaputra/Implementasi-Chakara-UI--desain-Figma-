@@ -18,7 +18,7 @@ const VR = () => {
             >
                 <SimpleGrid columns={[1]} spacing="20px">
                     {filenames.map((filename) => (
-                        <Box key={filename} position="relative" width="100%" height="200"> {/* 16:9 Aspect Ratio */}
+                        <Box key={filename} position="relative" width="100%" height="256"> {/* 16:9 Aspect Ratio */}
                             <Image
                                 src={`/images/VR/${filename}`}
                                 alt={filename}
