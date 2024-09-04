@@ -1,24 +1,37 @@
-import { NextResponse } from 'next/server';
 import path from 'path';
-import { promises as fs } from 'fs';
+import fs from 'fs/promises';
 
-export async function GET(request: Request) {
-    const { searchParams } = new URL(request.url);
-    const type = searchParams.get('type');
+export async function getImages(directories: string[]): Promise<Record<string, string[]>> {
+  try {
+    const allFilenames: Record<string, string[]> = {};
 
-    let imagesDirectory;
-
-    // Determine the directory based on the 'type' parameter
-    if (type === 'VR') {
-        imagesDirectory = path.join(process.cwd(), 'public/images/VR');
-    } else {
-        // Default to the 'gallery' directory if 'type' is not 'VR'
-        imagesDirectory = path.join(process.cwd(), 'public/images/gallery');
+    for (const directory of directories) {
+      const directoryPath = path.join(process.cwd(), 'public', 'images', directory);
+      const filenames = await fs.readdir(directoryPath);
+      allFilenames[directory] = filenames;
     }
 
-    // Read the filenames from the directory
-    const filenames = await fs.readdir(imagesDirectory);
-
-    // Return the filenames as a JSON response
-    return NextResponse.json(filenames);
+    return allFilenames;
+  } catch (error) {
+    console.error('Error reading directory:', error);
+    return {};
+  }
 }
+
+// src/app/api/images/[directory]/route.ts
+// import { NextResponse } from 'next/server';
+// import path from 'path';
+// import fs from 'fs/promises';
+
+// export async function GET(req: Request, { params }: { params: { directory: string } }) {
+//   const { directory } = params;
+//   const directoryPath = path.join(process.cwd(), 'public', 'images', directory);
+
+//   try {
+//     const filenames = await fs.readdir(directoryPath);
+//     return NextResponse.json(filenames);
+//   } catch (error) {
+//     console.error('Error reading directory:', error);
+//     return NextResponse.json([]);
+//   }
+// }
